@@ -1,28 +1,30 @@
 const Character = require('../models/Character');
 
 const findAllCharacters = async () => {
-    const allCharacters = await Character.find();
-    return allCharacters;
-}
+  const allCharacters = await Character.find();
+  return allCharacters;
+};
 
 const findByIdCharacter = async (idParam) => {
-    return await Character.findById (idParam);
+  return await Character.findById(idParam);
 };
 
-const createCharacter = async (newCharacter) => await Character.create(newCharacter);
+const createCharacter = async (newCharacter) =>
+  await Character.create(newCharacter);
 
-const updateCharacter = async (idParam, editCharacter)=>{
-return await Character.findByIdAndUpdate(idParam, editCharacter).setOptions({
+const updateCharacter = async (idParam, editCharacter) => {
+  return await Character.findByIdAndUpdate(idParam, editCharacter).setOptions({
     returnOriginal: false,
-});
+  });
 };
 
-const deleteCharacter = async (idParam) => await Character.findByIdAndDelete(idParam);
+const deleteCharacter = async (idParam) =>
+  await Character.findByIdAndDelete(idParam);
 
 module.exports = {
-    findAllCharacters,
-    findByIdCharacter,
-    createCharacter,
-    updateCharacter,
-    deleteCharacter
+  findAllCharacters,
+  findByIdCharacter,
+  createCharacter,
+  updateCharacter,
+  deleteCharacter,
 };
